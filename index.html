@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToS/Privacy Policy Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ToS/Privacy Policy Evaluation</h1>
+        <form id="evaluationForm">
+            <label for="modelOutput">Model Output (ToS/Privacy Policy Summary):</label>
+            <textarea id="modelOutput" placeholder="Enter the model's ToS/Privacy Policy output here..."></textarea>
+
+            <label for="groundTruth">Ground Truth (Verified ToS/Privacy Policy Data):</label>
+            <textarea id="groundTruth" placeholder="Enter the ground truth ToS/Privacy Policy data here..."></textarea>
+
+            <button type="button" onclick="generatePrompt()">Generate AI Evaluation Prompt</button>
+        </form>
+
+        <div class="output" id="aiPromptOutput"></div>
+    </div>
+
+    <script>
+        function generatePrompt() {
+            // Get the values of model output and ground truth
+            const modelOutput = document.getElementById('modelOutput').value.trim();
+            const groundTruth = document.getElementById('groundTruth').value.trim();
+
+            // Check if the inputs are filled
+            if (!modelOutput || !groundTruth) {
+                alert("Please fill in both the model output and ground truth fields.");
+                return;
+            }
+
+            // Create the prompt for AI evaluation
+            const prompt = `
+                MODEL OUTPUT (ToS/Privacy Policy Summary):
+                ${modelOutput}
+
+                GROUND TRUTH (Verified ToS/Privacy Policy Data):
+                ${groundTruth}
+
+                Task:
+                Based on the model's output and the ground truth provided, please evaluate the accuracy of the model's ToS or privacy policy summary on a scale of 1 to 10. After providing the score, please explain your reasoning by highlighting the strengths and weaknesses of the model's output in terms of accuracy.
+            `;
+
+            // Display the generated prompt
+            document.getElementById('aiPromptOutput').innerText = prompt;
+        }
+    </script>
+</body>
+</html>

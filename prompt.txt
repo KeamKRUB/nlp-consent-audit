@@ -1,0 +1,90 @@
+Task: Analyze the Terms of Service (ToS) or Privacy Policy of a website, identifying and ranking problematic clauses from most dangerous to least dangerous, and providing detailed explanations and context. Use a static set of categories for consistency, assigning a 0 score if a specific category is missing from the terms.
+
+Categories for Analysis:
+
+	•	Data Collection & Usage: Terms related to what data is collected, how it’s used, and user control over it.
+	•	User Liability & Rights: Terms detailing user rights, responsibilities, and limitations of liability.
+	•	Third-Party Sharing: Clauses on sharing data with third parties, including affiliates and service providers.
+	•	Content Ownership & Intellectual Property: Terms outlining ownership rights over user-generated content or intellectual property.
+	•	Arbitrary Changes to Terms: Clauses allowing unilateral changes to terms without user consent.
+	•	Termination of Services: Policies around service termination and user account closure.
+	•	Automatic Renewals & Billing: Terms on subscription renewals, billing, and user notifications.
+
+Scoring Scale (Including 0):
+
+	•	0: Missing Information – This category is not addressed in the ToS or Privacy Policy, which may indicate a lack of transparency or consideration for users.
+	•	1: Highly Dangerous – Terms posing significant risks to users; unfair or deceptive practices.
+	•	2: Dangerous – Likely to harm users, though not as severe as category 1.
+	•	3: Concerning – Somewhat problematic but not immediately harmful.
+	•	4: Mild Issue – Minor issues affecting user experience or transparency.
+	•	5: Not Problematic – Adheres to best practices; user-friendly.
+
+Output Format:
+
+	•	Summary: Offer a comprehensive overview of the ToS or Privacy Policy, emphasizing major issues, missing information, and any user-friendly aspects.
+	•	Categorized Analysis: List specific issues by category, ranking from most dangerous to least dangerous. If a category is missing from the policy, it should be marked with a 0 score. Provide a detailed explanation for each clause, contextualizing its risks to users. Each category can include multiple terms with the same score if applicable.
+
+Example Output in JSON format (More Detailed):
+{
+  "summary": "The terms of service for this website contain several problematic clauses, particularly in data collection and liability waivers. There are significant transparency issues around data sharing and user rights. Additionally, some categories, such as arbitrary changes to terms, are missing entirely, raising further concerns. The terms do include some user-friendly aspects, such as clear automatic renewal policies.",
+  "topic": {
+    "Data Collection & Usage": 
+      {
+        "clause": "Excessive Data Collection Without Clear Consent",
+        "explanation": "The website collects a wide range of personal data, including location, browsing habits, and device identifiers, without providing a clear opt-out option. Users may unknowingly share sensitive information, and it is unclear how long the data will be retained or whether it will be anonymized. This lack of transparency and control over data poses a privacy risk and does not comply with best practices for user data protection.",
+        "score": 1
+      }
+    ,
+    "User Liability & Rights": 
+      {
+        "clause": "Broad Limitation of Liability",
+        "explanation": "The terms include a limitation of liability clause that absolves the company from legal responsibility in most situations, including cases of negligence or service failures. This leaves users with limited or no legal recourse if they experience financial or personal damages as a result of using the service. Such clauses may be unenforceable in certain jurisdictions but still pose a significant risk to users.",
+        "score": 2
+      }
+    ,
+    "Third-Party Sharing": 
+      {
+        "clause": "Unclear Data Sharing with Third Parties",
+        "explanation": "The terms vaguely mention that user data may be shared with third-party partners, without detailing who these third parties are or what data is shared. This lack of clarity leaves users uninformed about the destinations and purposes of data sharing, undermining transparency and user trust.",
+        "score": 3
+      }
+    ,
+    "Content Ownership & Intellectual Property": 
+      {
+        "clause": "Unilateral Content Ownership",
+        "explanation": "The website claims ownership over all user-generated content and reserves the right to use it for any purpose without notifying or compensating the original creator. This is a concerning policy, as it does not recognize or protect the intellectual property rights of users, potentially discouraging content sharing and engagement.",
+        "score": 2
+      }
+    ,
+    "Arbitrary Changes to Terms": 
+      {
+        "clause": "Missing Clauses on Term Changes",
+        "explanation": "The terms do not include any information regarding the ability to change or update terms. This omission raises concerns, as it is unclear whether the company can modify terms at will without notifying users, which would undermine user trust and awareness of their obligations and rights.",
+        "score": 0
+      }
+    ,
+    "Termination of Services": 
+      {
+        "clause": "Unclear Termination Policies",
+        "explanation": "The terms do not specify the conditions under which the company may terminate user accounts or restrict access. This lack of clarity leaves users in a vulnerable position, as they are unaware of what actions may result in account suspension or deletion.",
+        "score": 3
+      }
+    ,
+    "Automatic Renewals & Billing": 
+      {
+        "clause": "Clear Renewal Notice and Cancellation Process",
+        "explanation": "The terms provide transparent policies around automatic renewals, with a clear notice period before renewal, and offer an easy cancellation option through account settings. This approach adheres to best practices, ensuring users are well-informed and have control over their subscriptions.",
+        "score": 5
+      }
+  }
+}
+
+Process for Detailed Analysis:
+
+	1.	Identify Risks and Missing Information: Scan the ToS or Privacy Policy for terms that could negatively impact users, and note if any standard categories are missing.
+	2.	Rank by Severity: Assess terms within each category, ranking them by how dangerous they are to the user. Mark missing categories with a 0 score.
+	3.	Explain and Score: Provide a clear explanation for each term, including:
+	•	Legal and Privacy Risks: Implications for user privacy, data rights, or legal recourse.
+	•	Transparency: Clarity of the policy and any hidden risks.
+	•	User-Friendly Alternatives: Best practices or user-centered alternatives.
+	4.	Static Categories and Scores (Including 0): Use predefined categories to organize findings, with 0 scores for missing categories and multiple terms able to share the same score if needed.

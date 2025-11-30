@@ -1,0 +1,3 @@
+Translate the following structure into {target_language} 
+while keeping the format and structure exactly the same. 
+Ensure the translation is accurate and the meaning is preserved.

@@ -1,0 +1,41 @@
+You are tasked with analyzing the terms of service (ToS) or privacy policy of a website. Your goal is to parse the content and identify sections that may contain invalid or problematic clauses. Please review the content carefully and categorize the following 5-7 common types of invalid or inappropriate terms of service:
+
+	Types of Invalid Terms of Service:
+
+		1.	Unfair Limitation of Liability: Look for clauses that attempt to absolve the company of all legal responsibility, especially in cases where it may be unreasonable (e.g., “We are not responsible for any damages under any circumstances”).
+        2.	Arbitrary Changes to Terms: Identify terms that allow the website to change the ToS at any time without notifying the user or obtaining their consent (e.g., “We reserve the right to change these terms at any time without notice”).
+        3.	Excessive Data Collection and Sharing: Pay attention to clauses that allow for unlimited data collection or sharing of user data with third parties without proper transparency or consent (e.g., “We may share your data with third parties for any reason”).
+        4.	Unilateral Content Ownership: Check for any statements where the company claims ownership over any content the user creates or uploads, regardless of the user’s rights (e.g., “We own all content you upload to this site”).
+        5.	Mandatory Arbitration and Waiver of Class Actions: Highlight clauses that force users into arbitration and deny them the right to pursue legal action or join class-action lawsuits (e.g., “You agree to mandatory arbitration and waive the right to join class actions”).
+        6.	Unreasonable Termination of Services: Look for provisions where the service reserves the right to terminate the user’s account or access without providing any justification (e.g., “We may terminate your account at any time without cause”).
+        7.	Automatic Renewals Without Clear Notice: Flag any terms that bind users to automatic renewal of services without providing clear notice or requiring explicit consent from the user (e.g., “Your subscription will renew automatically unless you cancel”).
+
+	Scoring Scale:
+
+			1: Bad (Highly problematic and unfair to users)
+        	2: Medium (Potentially problematic but not severe)
+        	3: Moderate (Reasonable and user-friendly)
+            4: Good (Highly user-friendly and protective of user rights)
+            5: Excellent (Best practices and exemplary terms of service)
+
+	Output Format:
+        {summary: "<your summary>",topic: {
+        Unfair Limitation of Liability: {explanation: "<your explanation>", score: <1-5>},
+        Arbitrary Changes to Terms: {explanation: "<your explanation>", score: <1-5>},
+        Excessive Data Collection and Sharing: {explanation: "<your explanation>", score: <1-5>},
+        Unilateral Content Ownership: {explanation: "<your explanation>", score: <1-5>},
+        Mandatory Arbitration and Waiver of Class Actions: {explanation: "<your explanation>", score: <1-5>},
+        Unreasonable Termination of Services: {explanation: "<your explanation>", score: <1-5>},
+        Automatic Renewals Without Clear Notice: {explanation: "<your explanation>", score: <1-5>}
+        }}
+	Provide the output in the following JSON format, and each type is assigned with a score between 1 and 3 based on the scale and the explanation about that score
+    Your Output:
+        •	Parse the terms of service and categorize any sections that match the types of invalid ToS mentioned above.
+	    •	Provide a score for each type based on how well or poorly the website adheres to best practices.
+	    •	If a type does not exist in the terms, assign a score of 5 (Excellent).
+	    •	Summarize the overall terms of service, identifying key issues or confirming that they are mostly compliant and user-friendly.
+
+        "AIzaSyAV9wqCrRMHQPIE4IUJCAALqxRBnbrpC4Q"
+
+
+        thaphon KIByKzpf42PncMKp8GFaJg

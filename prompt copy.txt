@@ -1,0 +1,53 @@
+Task: Analyze the Terms of Service (ToS) or Privacy Policy of a website, dynamically identifying problematic clauses and ranking them from most dangerous to least dangerous, providing detailed explanations and context.
+
+Scoring Scale:
+
+	•	1: Highly Dangerous – Poses significant risks to users; unfair or deceptive.
+	•	2: Dangerous – Likely to harm users, though not as severe as category 1.
+	•	3: Concerning – Somewhat problematic, but not immediately harmful.
+	•	4: Mild Issue – Minor problems that could affect user experience or transparency.
+	•	5: Not Problematic – Adheres to best practices; user-friendly.
+
+Output Format:
+	•	Summary: Provide a thorough overview of the terms of service or privacy policy, highlighting any overarching issues or positive aspects.
+	•	Dynamic Breakdown: Identify specific problematic terms, categorize them, and rank them in order of danger to the user, from most dangerous to least dangerous. Provide a detailed explanation for each, offering context on why it’s problematic or dangerous. There can be up to 10 identified issues, based on the complexity and severity of the terms. Scores can vary, allowing multiple issues to receive the same score if deemed appropriate (e.g., 1, 1, 2, 3, 3 or 1, 1, 4, 5, 2).
+
+Example Output in JSON format (More Detailed):
+{
+  "summary": "The terms of service of this website contain several clauses that raise serious concerns about user rights and privacy. Key issues include excessive data collection, vague terms around liability, and a lack of transparency regarding changes to the service. While some areas of the terms are user-friendly, others pose significant risks, particularly with regard to data usage and liability disclaimers.",
+  "topic": {
+    "Excessive Data Collection Without Consent": {
+      "explanation": "The website collects a vast array of personal and usage data, including information such as location, browsing habits, and device identifiers. However, the terms lack clear mechanisms for obtaining user consent or offering an opt-out option. This creates a privacy risk as users may unknowingly share sensitive information, and it is unclear how the data will be used or who it will be shared with. Additionally, the terms do not clarify how long data will be retained or whether it will be anonymized. In light of modern data protection standards like GDPR, this lack of transparency and control for users is highly concerning.",
+      "score": 1
+    },
+    "Unfair Limitation of Liability": {
+      "explanation": "The terms include a broad limitation of liability clause that attempts to absolve the company from any legal responsibility, including in cases of negligence or failure to provide the agreed services. This effectively leaves users without any legal recourse if they suffer damages, financial loss, or data breaches due to the company's actions or inactions. Such clauses are often considered unfair and may not hold up in certain legal jurisdictions, but they still create significant risk for users, as the company does not take responsibility for protecting user rights.",
+      "score": 1
+    },
+    "Arbitrary Changes to Terms Without Notice": {
+      "explanation": "The terms give the company the ability to modify the agreement at any time without notifying the users in advance. This allows the website to change critical terms, such as fees, data usage, or service availability, without giving users a chance to review or accept the changes. While this type of clause is common, it is problematic because users may continue using the service under the assumption that the original terms still apply. Without proper notification or consent mechanisms, users' rights could be undermined as they are unaware of new obligations or limitations.",
+      "score": 2
+    },
+    "Lack of Transparency in Data Sharing with Third Parties": {
+      "explanation": "The terms vaguely mention that user data may be shared with third-party partners, but there is no specific information on who these third parties are, what type of data is shared, or for what purposes. This lack of clarity leaves users in the dark about how their personal information is being used beyond the platform itself. Data sharing with third parties is a common practice, but best practices require detailed explanations of which entities receive the data, the purpose of sharing, and the level of protection applied to the data. The absence of these details raises concerns about the website’s commitment to protecting user privacy.",
+      "score": 3
+    },
+    "Automatic Renewals with Clear Notice and Opt-Out": {
+      "explanation": "The terms include provisions for automatic renewals of subscriptions or services, which could be a concern if not handled properly. However, in this case, the website clearly informs users of the automatic renewal policy, providing a notice period before the renewal occurs. Users are also given the option to cancel the renewal easily through their account settings, and the cancellation process is transparent and straightforward. This approach follows best practices and ensures users are not unintentionally locked into subscription renewals without their consent.",
+      "score": 5
+    }
+  }
+}
+Process for Detailed Analysis:
+
+1.	Identify Specific Risks: As you read through the ToS or Privacy Policy, carefully note any terms that could negatively impact users:
+•	Look for vague or overly broad language, especially regarding liability, data collection, and changes to terms.
+•	Take note of how transparent the company is about its policies.
+2.	Rank by Severity: Once the issues are identified, rank them in terms of how dangerous they are to the user.
+•	Most Dangerous: Terms that severely limit user rights (e.g., unlimited data collection, unfair liability waivers).
+•	Least Dangerous: Terms that may be slightly inconvenient but are handled transparently (e.g., automatic renewals with notice).
+3.	Explain and Score: Provide a detailed explanation of why each term is problematic. Include context about:
+•	Legal and Privacy Risks: How the term impacts user privacy, data rights, or legal recourse.
+•	Transparency: Whether the website is clear and upfront about the implications of its terms.
+•	User-Friendly Alternatives: If relevant, mention how a more user-friendly or legally sound approach could have been taken.
+4.	Offer a Score: Use the dynamic scale, allowing multiple terms to share the same score where necessary.
